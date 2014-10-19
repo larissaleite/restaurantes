@@ -1,3 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse, HttpResponseRedirect
 
-# Create your views here.
+from clientes.models import Cliente
+from clientes.forms import ClienteForm
+
+def index(request):
+    return HttpResponse('Restaurantes')
+
+def cadastro(request):
+    if request.method == 'POST':
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            cliente = form.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = ClienteForm()
+
+    return render(request, 'cadastro.html', { 'form' : form })

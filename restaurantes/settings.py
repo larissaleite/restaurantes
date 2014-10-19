@@ -48,6 +48,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_DIRS = (
+  os.path.join(PROJECT_PATH, 'templates'),
+)
+
 ROOT_URLCONF = 'restaurantes.urls'
 
 WSGI_APPLICATION = 'restaurantes.wsgi.application'
