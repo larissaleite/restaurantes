@@ -40,7 +40,7 @@ class Prato (models.Model):
 
 class Pedido (models.Model):
     cliente = models.ForeignKey('Cliente')
-    pratos = models.ForeignKey('Prato')
+    pratos = models.ManyToManyField('Prato')
     cartao = models.ForeignKey('Cartao')
     total = models.DecimalField(max_digits=5, decimal_places=2)
     data = models.DateTimeField(auto_now_add=True)
