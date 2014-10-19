@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 
-from clientes.models import Cliente
+from clientes.models import Cliente, Prato
 from clientes.forms import ClienteForm
 
 def index(request):
@@ -17,3 +17,8 @@ def cadastro(request):
         form = ClienteForm()
 
     return render(request, 'cadastro.html', { 'form' : form })
+
+#add login required
+def pratos(request):
+    pratos = Prato.objects.all().order_by('preco')
+    return render(request, 'pratos.html', { 'pratos' : pratos })

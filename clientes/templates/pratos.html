@@ -1,0 +1,24 @@
+<html>
+<head>
+  <title>Pratos</title>
+</head>
+
+<body>
+
+    <h3> Pratos </h3>
+
+    <ol>
+      {% for prato in pratos %}
+        <li>
+          <p class="prato-codigo">
+            {{ prato.nome }} - R${{ prato.preco }}
+            <br>
+            Ingredientes: {{ prato.ingredientes }}
+          </p>
+        </li>
+
+      {% endfor %}
+    </ol>
+
+</body>
+</html>
