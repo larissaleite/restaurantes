@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Carrinho</title>
+</head>
+
+<body>
+
+    <h3> Carrinho </h3>
+
+    <ol>
+      {% for item in items %}
+        <li>
+          <p class="carrinho-item">
+            {{ item.prato.nome }}
+            <br>
+            Quantidade: {{ item.quantidade }} - R${{ item.total }}
+          </p>
+        </li>
+
+      {% endfor %}
+    </ol>
+
+    <button>Finalizar</button>
+
+</body>
+</html>
