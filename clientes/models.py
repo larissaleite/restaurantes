@@ -44,3 +44,8 @@ class Pedido (models.Model):
     cartao = models.ForeignKey('Cartao')
     total = models.DecimalField(max_digits=5, decimal_places=2)
     data = models.DateTimeField(auto_now_add=True)
+
+class Carrinho (models.Model):
+    QUANTIDADE_CHOICES = [(i,i) for i in range(1,6)]
+    prato = models.ForeignKey('Prato')
+    quantidade = models.IntegerField(max_length=1, choices=QUANTIDADE_CHOICES)
