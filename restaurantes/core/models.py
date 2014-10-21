@@ -9,7 +9,7 @@ class Cliente (models.Model):
     endereco = models.CharField(max_length=200)
     telefone = models.CharField(max_length=15)
 
-    # nome que referencia o objeto
+    # nome que representa o objeto no template
     def __unicode__(self):
         return self.nome
 
