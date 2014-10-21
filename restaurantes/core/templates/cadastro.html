@@ -1,13 +1,65 @@
-<html>
-<head>
-  <title>Cadastro</title>
-</head>
+{% extends "base.html" %}
 
-<body>
+{% block content %}
 
-<form action="/cadastro/" method="POST">{% csrf_token %}
-  {{ form }}
-  <input type="submit" value="Submit" />
-</form>
+<style>
+    .cadastro {
+        width: 80%;
+        margin: 0 auto;
+        margin-top:10%;
+    }
 
-</html>
+    .btn-default {
+        background: #abc6d9;
+    }
+
+    .form-control {
+        margin-bottom: 5%;
+    }
+
+    .endereco {
+        margin-bottom: 0%;
+    }
+
+</style>
+
+<div class="col-md-3"> </div>
+
+<div class="col-md-6">
+
+    <div class="cadastro">
+        <h4>Cadastre-se</h4>
+
+        <form action="/cadastro/" method="POST">{% csrf_token %}
+          <div class="row">
+              <div class="col-xs-6">
+                  <input class="form-control" id="id_nome" type="text" name="nome" maxlength="100" placeholder="Nome" />
+              </div>
+              <div class="col-xs-6">
+                 <input class="form-control" id="id_email" type="text" name="email" maxlength="50" placeholder="Email" />
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-xs-6">
+                  <input class="form-control" id="id_telefone" type="text" name="telefone" maxlength="15" placeholder="Telefone" />
+              </div>
+              <div class="col-xs-6">
+                  <input class="form-control" id="id_senha" type="password" name="senha" maxlength="20" placeholder="Senha" />
+              </div>
+          </div>
+          
+          <div class="row">
+              <div class="col-xs-12">
+                  <input class="form-control endereco" id="id_endereco" type="text" name="endereco" maxlength="200" placeholder="Endereço" />
+              </div>
+          </div>
+          <hr>
+          <button class="btn btn-default form-control" type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-3"> </div>
+
+{% endblock content %}
