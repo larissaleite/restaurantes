@@ -8,7 +8,7 @@
 <h3>Adicione pratos ao seu pedido</h3>
 
 <form action="/pratos/carrinho" method="POST">{% csrf_token %}
-  {{ form.as_p }}
+  {{ form }}
   <input type="submit" value="Submit" />
 </form>
 

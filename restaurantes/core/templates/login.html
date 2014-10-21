@@ -1,13 +1,42 @@
-<html>
-<head>
-  <title>Login</title>
-</head>
+{% extends "base.html" %}
 
-<body>
+{% block content %}
 
-<form action="/login/" method="POST">{% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Submit" />
-</form>
+<style>
+    .login {
+        width: 60%;
+        margin: 0 auto;
+        margin-top:10%;
+    }
 
-</html>
+    h4 > a {
+        margin-left: 23%;
+        font-size: 14px;
+    }
+
+    .btn-default {
+        background: #abc6d9;
+    }
+
+</style>
+
+<div class="col-md-3"> </div>
+
+<div class="col-md-6">
+
+    <div class="login">
+        <h4> Acesse sua conta <a href="/cadastro">ou cadastre-se</a> </h4>
+
+        <form action="/login/" method="POST">{% csrf_token %}
+          <input class="form-control" id="id_email" type="text" name="email" maxlength="50" placeholder="Email" />
+          <br>
+          <input class="form-control" id="id_senha" type="password" name="senha" maxlength="20" placeholder="Senha" />
+          <hr>
+          <button class="btn btn-default form-control" type="submit">Entrar</button>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-3"> </div>
+
+{% endblock content %}
